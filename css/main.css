@@ -5,6 +5,9 @@
 }
 body{
     width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
 }
 #selectForm{
     display: -webkit-flex;
@@ -32,9 +35,13 @@ body{
 }
 .equipSelect{
     margin: 5px 0;
+    padding: 5px;
+    border-bottom: 2px solid rgba(0,0,0,.3)
 }
+
+
 fieldset{
-    padding: 10px 5px;
+    padding: 10px;
 }
 label{
     width: 100%;
@@ -47,6 +54,7 @@ input{
     margin-bottom: 10px;
     padding: 10px;
     float: right;
+    margin-top: 3px;
 }
 input[type="submit"]{
     float: none;
@@ -80,3 +88,12 @@ input[type="submit"]:hover{
     color: lightgray;
 }
 
+#workoutDiv{
+    width: 100%;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
