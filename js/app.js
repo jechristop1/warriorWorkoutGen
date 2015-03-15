@@ -1,84 +1,62 @@
-(function(){
+(function () {
 
-    var upperEx, lowerEx, cardioEx, i;
+    var barbellUpperDB = ['Bench Press','Military Press','Bent-over Row', 'Push Press', 'Close-grip Bench Press', 'barbell curl'];
+    var barbellLowerDB = ['Back Squat','Front Squat','Deadlift', 'Stiff-legged Deadlift', 'Barbell lunge', 'Trap bar Deadlift'];
+    var dumbellUpperDB = ['Dumbell Incline Bench','Dumbell Press','Dumbell Curls', 'Shoulder Laterals', 'Tricep Extension', 'Hammer curl'];
+    var dumbellLowerDB = ['Dumbell Lunge','Dumbell Stiff-leg Deadlift','Dumbell Step Ups', 'Sumo Squat', 'ex5', 'ex6'];
+    var cardioDB = ['Sled','Treadmill','Bike', 'sprint', 'elliptical', 'rower'];
 
-    var barbellUpper = ['Bench Press','Military Press','Bent-over Row', 'Push Press', 'Close-grip Bench Press'];
-    var barbellLower = ['Back Squat','Front Squat','Deadlift', 'Stiff-legged Deadlift', 'Barbell lunge'];
-    var dumbellUpper = ['Dumbell Incline Bench','Dumbell Press','Dumbell Curls', 'Shoulder Laterals', 'Tricep Extension'];
-    var dumbellLower = ['Dumbell Lunge','Dumbell Stiff-leg Deadlift','Dumbell Step Ups', 'Sumo Squat'];
-    var cardio = ['Sled','Treadmill','Bike'];
-    
-    var upperOutputDiv = document.getElementById("upperOutput");
+    var totalUpperEx = [], totalLowerEx = [], totalCardioEx = [], upperWorkout = [], lowerWorkout = [], cardioWorkout = [];
 
-    upperEx = barbellUpper.concat(dumbellUpper);
-    lowerEx = barbellLower.concat(dumbellLower);
-    
-    //function generateUpperExcercise(upperEx){
-    //    var prevRandExercise = "";
-    //    var upperBodyExercise;
-    //    upperOutputDiv.innerHTML = '<ul>';
-    //    for (i = 1; i <= 4; i++) {
-    //        prevRandExercise = upperBodyExercise;
-    //        upperBodyExercise = upperEx[Math.floor(Math.random() * upperEx.length)];
-    //
-    //        if (upperBodyExercise === prevRandExercise) {
-    //            upperBodyExercise = upperEx[Math.floor(Math.random() * upperEx.length)];
-    //        };
-    //        upperOutputDiv.innerHTML += '<li>' + upperBodyExercise + '</li>';
-    //    };
-    //    upperOutputDiv.innerHTML += '</ul>';
-    //
-    //
-    //};
-
-    //generateUpperExcercise(upperEx);
-
-
-    var theWorkout = [];
+    totalUpperEx = barbellUpperDB.concat(dumbellUpperDB);
+    totalLowerEx = barbellLowerDB.concat(dumbellLowerDB);
+    totalCardioEx = cardioDB;
 
     function random(max) {
         return Math.floor(Math.random() * max);
     }
 
-    for (var i = 0; i < 2; i++) {
-        var upperBodyExercise = upperEx[random(upperEx.length)];
-        var lowerBodyExercise = lowerEx[random(lowerEx.length)];
-        if (theWorkout.indexOf(upperBodyExercise) === -1) {
-            theWorkout.push(upperBodyExercise);
-        } else {
-            --i;
+
+    var exerciseGenerator = function(workoutArray, exerDatabase){
+        for (var i = 0; i < 4; i++) {
+            var exercise = exerDatabase[random(exerDatabase.length)];
+            if (workoutArray.indexOf(exercise) === -1) {
+                workoutArray.push(exercise);
+            } else {
+                --i;
+            }
         }
-        if (theWorkout.indexOf(lowerBodyExercise) === -1) {
-            theWorkout.push(lowerBodyExercise);
-        } else {
-            --i;
-        }
-    }
+
+        return workoutArray;
+    };
+
+    var upper = exerciseGenerator(upperWorkout, totalUpperEx);
+
+    console.log( upper);
+
+    var lower = exerciseGenerator(lowerWorkout, totalLowerEx);
+    console.log(lower);
+
+    var cardio = exerciseGenerator(cardioWorkout, totalCardioEx);
+    console.log(cardio);
 
 
-    console.log(theWorkout);
+
+
+    var workoutDivs = document.getElementsByClassName("workoutDiv");
+
+    for (i = 0; i < workoutDivs.length; i++) {
 
 
 
+        workoutDivs[i].innerHTML = '<ul>';
+        workoutDivs[i].innerHTML += '<li>' + upper[i] + '</li>';
+        workoutDivs[i].innerHTML += '<li>' + lower[i] + '</li>';
+        workoutDivs[i].innerHTML += '<li>' + cardio[i] + '</li>';
+        workoutDivs[i].innerHTML += '</ul>';
 
-
-
+    };
 
 
 
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
