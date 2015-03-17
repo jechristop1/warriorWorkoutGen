@@ -8,8 +8,10 @@
 
     var totalUpperEx = [], totalLowerEx = [], totalCardioEx = [], upperWorkout = [], lowerWorkout = [], cardioWorkout = [];
 
-    totalUpperEx = barbellUpperDB.concat(dumbellUpperDB);
-    totalLowerEx = barbellLowerDB.concat(dumbellLowerDB);
+    totalUpperMain = barbellUpperDB.concat(dumbellUpperDB);
+    totalLowerMain = barbellLowerDB.concat(dumbellLowerDB);
+    totalUpperAccessory = barbellUpperDB.concat(dumbellUpperDB);
+    totalLowerAccessory = barbellLowerDB.concat(dumbellLowerDB);
     totalCardioEx = cardioDB;
 
     function random(max) {
@@ -20,6 +22,7 @@
     var exerciseGenerator = function(workoutArray, exerDatabase){
         for (var i = 0; i < 4; i++) {
             var exercise = exerDatabase[random(exerDatabase.length)];
+
             if (workoutArray.indexOf(exercise) === -1) {
                 workoutArray.push(exercise);
             } else {
@@ -30,12 +33,21 @@
         return workoutArray;
     };
 
-    var upper = exerciseGenerator(upperWorkout, totalUpperEx);
+    var upperMain = exerciseGenerator(upperWorkout, totalUpperMain);
 
-    console.log( upper);
+    console.log( upperMain);
 
-    var lower = exerciseGenerator(lowerWorkout, totalLowerEx);
-    console.log(lower);
+    var upperAccessory = exerciseGenerator(upperWorkout, totalUpperAccessory);
+
+    console.log( upperAccessory);
+
+    var lowerMain = exerciseGenerator(lowerWorkout, totalLowerMain);
+    console.log(lowerMain);
+
+
+    var lowerAccessory = exerciseGenerator(lowerWorkout, totalLowerAccessory);
+    console.log(lowerAccessory);
+
 
     var cardio = exerciseGenerator(cardioWorkout, totalCardioEx);
     console.log(cardio);
@@ -50,8 +62,10 @@
 
 
         workoutDivs[i].innerHTML = '<ul>';
-        workoutDivs[i].innerHTML += '<li>' + upper[i] + '</li>';
-        workoutDivs[i].innerHTML += '<li>' + lower[i] + '</li>';
+        workoutDivs[i].innerHTML += '<li>' + upperMain[i] + '</li>';
+        workoutDivs[i].innerHTML += '<li>' + upperAccessory[i] + '</li>';
+        workoutDivs[i].innerHTML += '<li>' + lowerMain[i] + '</li>';
+        workoutDivs[i].innerHTML += '<li>' + lowerAccessory[i] + '</li>';
         workoutDivs[i].innerHTML += '<li>' + cardio[i] + '</li>';
         workoutDivs[i].innerHTML += '</ul>';
 

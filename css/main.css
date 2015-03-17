@@ -8,6 +8,7 @@ body{
     display: -webkit-flex;
     display: flex;
     flex-direction: row;
+    font-family: 'PT Sans', sans-serif;
 }
 #selectForm{
     display: -webkit-flex;
@@ -18,6 +19,7 @@ body{
     background-color: #eaeaea;
     padding: 20px;
     padding-top: 40px;
+    border-right: 2px solid black;
 
 }
 
@@ -88,12 +90,49 @@ input[type="submit"]:hover{
     color: lightgray;
 }
 
-#workoutDiv{
+
+#powerWrap{
     width: 100%;
-    display:-webkit-flex;
-    display:flex;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
+    height: 100%;
+    display: -webkit-flex;
+    display:         flex;
+    flex-direction: column;
+}
+
+#power1, #power2{
+    display: -webkit-flex;
+    display:         flex;
+    flex-direction: row;
     justify-content: center;
+    height: 50vh;
+}
+
+.workoutDiv{
+    display: -webkit-flex;
+    display:         flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    font-size: 2em;
+    line-height: 2em;
+    border: 1px solid black;
+}
+
+.workoutDiv ul {
+    margin: 0;
+    padding: 10px 15px;
+}
+#powerWrap div li{
+    list-style: none;
+
+}
+
+.blue{
+    background-color: steelblue;
+}
+
+.silver{
+    background-color: silver;
 }
