@@ -6,12 +6,19 @@
     var dumbellLowerDB = ['Dumbell Lunge','Dumbell Stiff-leg Deadlift','Dumbell Step Ups', 'Sumo Squat', 'ex5', 'ex6'];
     var cardioDB = ['Sled','Treadmill','Bike', 'sprint', 'elliptical', 'rower'];
 
-    var totalUpperEx = [], totalLowerEx = [], totalCardioEx = [], upperWorkout = [], lowerWorkout = [], cardioWorkout = [];
+    var upperWorkoutMain = [], upperWorkoutAccessory = [], lowerWorkoutMain = [], lowerWorkoutAccessory = [], cardioWorkout = [];
 
-    totalUpperMain = barbellUpperDB.concat(dumbellUpperDB);
-    totalLowerMain = barbellLowerDB.concat(dumbellLowerDB);
-    totalUpperAccessory = barbellUpperDB.concat(dumbellUpperDB);
-    totalLowerAccessory = barbellLowerDB.concat(dumbellLowerDB);
+    //Testing cocatenation of workout arrays
+
+    //totalUpperMain = barbellUpperDB.concat(dumbellUpperDB);
+    //totalUpperAccessory = barbellUpperDB.concat(dumbellUpperDB);
+    //totalLowerMain = barbellLowerDB.concat(dumbellLowerDB);
+    //totalLowerAccessory = barbellLowerDB.concat(dumbellLowerDB);
+
+    totalUpperMain = barbellUpperDB;
+    totalUpperAccessory = dumbellUpperDB;
+    totalLowerMain = barbellLowerDB;
+    totalLowerAccessory = dumbellLowerDB;
     totalCardioEx = cardioDB;
 
     function random(max) {
@@ -19,7 +26,7 @@
     }
 
 
-    var exerciseGenerator = function(workoutArray, exerDatabase){
+    var mainExerciseGenerator = function(workoutArray, exerDatabase){
         for (var i = 0; i < 4; i++) {
             var exercise = exerDatabase[random(exerDatabase.length)];
 
@@ -33,23 +40,39 @@
         return workoutArray;
     };
 
-    var upperMain = exerciseGenerator(upperWorkout, totalUpperMain);
+    var accessoryExerciseGenerator = function(workoutArray, exerDatabase){
+        for (var i = 0; i < 4; i++) {
+            var exercise = exerDatabase[random(exerDatabase.length)];
+
+            if (workoutArray.indexOf(exercise) === -1) {
+                workoutArray.push(exercise);
+            } else {
+                --i;
+            }
+        }
+
+        return workoutArray;
+    };
+
+
+
+    var upperMain = mainExerciseGenerator(upperWorkoutMain, totalUpperMain);
 
     console.log( upperMain);
 
-    var upperAccessory = exerciseGenerator(upperWorkout, totalUpperAccessory);
+    var upperAccessory = accessoryExerciseGenerator(upperWorkoutAccessory, totalUpperAccessory);
 
     console.log( upperAccessory);
 
-    var lowerMain = exerciseGenerator(lowerWorkout, totalLowerMain);
+    var lowerMain = mainExerciseGenerator(lowerWorkoutMain, totalLowerMain);
     console.log(lowerMain);
 
 
-    var lowerAccessory = exerciseGenerator(lowerWorkout, totalLowerAccessory);
+    var lowerAccessory = accessoryExerciseGenerator(lowerWorkoutAccessory, totalLowerAccessory);
     console.log(lowerAccessory);
 
 
-    var cardio = exerciseGenerator(cardioWorkout, totalCardioEx);
+    var cardio = mainExerciseGenerator(cardioWorkout, totalCardioEx);
     console.log(cardio);
 
 
