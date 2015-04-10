@@ -14,77 +14,41 @@
     </header>
 
     <div id="selectForm">
-        <form action="">
+        <form id="generatorForm" action="">
 
             <!--<fieldset>-->
 
+            <fieldset data-role="controlgroup" data-type="horizontal">
+
                 <legend>Check if you have:</legend>
-                <div class="equipSelect" id="firstEquipDiv">
-                    <label for="barbell">Barbells</label>
-                    <input type="checkbox" name="barbell" id="barbell"/>
-                </div>
 
-                <br/>
+                <input type="checkbox" name="barbells" id="barbells">
+                <label for="barbells">Barbells</label>
 
-                <div class="equipSelect">
-                    <label for="dumbells">Dumbells</label>
-                    <input type="checkbox" name="dumbells" id="dumbells"/>
-                </div>
+                <input type="checkbox" name="dumbells" id="dumbells">
+                <label for="dumbells">Dumbells</label>
 
-                <br/>
+                <input type="checkbox" name="sled" id="sled">
+                <label for="sled">Sled</label>
 
-                <div class="equipSelect">
-                    <label for="sled">Sled</label>
-                    <input type="checkbox" name="sled" id="sled"/>
-                </div>
+                <input type="checkbox" name="treadmill" id="treadmill">
+                <label for="treadmill">Treadmill</label>
 
-                <br/>
+                <input type="checkbox" name="bike" id="bike">
+                <label for="bike">Bike</label>
 
-                <div class="equipSelect">
-                    <label for="treadmill">Treadmill</label>
-                    <input type="checkbox" name="treadmill" id="treadmill"/>
-                </div>
+                <input type="checkbox" name="trx" id="trx">
+                <label for="trx">TRX</label>
 
-                <br/>
-
-                <div class="equipSelect">
-                    <label for="Bike">Bike</label>
-                    <input type="checkbox" name="Bike" id="Bike"/>
-                </div>
-
-                <br/>
-
-                <div class="equipSelect">
-                    <label for="trx">TRX</label>
-                    <input type="checkbox" name="trx" id="trx"/>
-                </div>
-
+                <input type="checkbox" name="kettlebells" id="kettlebells">
+                <label for="kettlebells">Kettlebells</label>
+                
+            </fieldset>
             <!--</fieldset>-->
-
-            <br/>
-
-            <input type="submit" value="Generate"/>
-        </form>  
+         <!--  -->
+        </form> 
+        <button type="submit" id="generateButton">Generate</button> 
     </div>
-
-    <!--Jquery form test-->
-
-    <form>
-        <fieldset data-role="controlgroup" data-type="horizontal">
-
-            <legend>Horizontal:</legend>
-
-            <input type="checkbox" name="checkbox-h-2a" id="checkbox-h-2a">
-            <label for="checkbox-h-2a">One</label>
-            <input type="checkbox" name="checkbox-h-2b" id="checkbox-h-2b">
-            <label for="checkbox-h-2b">Two</label>
-            <input type="checkbox" name="checkbox-h-2c" id="checkbox-h-2c">
-            <label for="checkbox-h-2c">Three</label>
-
-        </fieldset>
-    </form>
-
-
 
 
     <div id="powerWrap">
