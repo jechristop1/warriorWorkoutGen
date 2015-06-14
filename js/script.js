@@ -71,7 +71,7 @@
 
 
     var workoutDivs = document.getElementsByClassName("workoutDiv");
-    for (i = 0; i < workoutDivs.length; i++) {
+    for (var i = 0; i < workoutDivs.length; i++) {
 
         workoutDivs[i].innerHTML = '<ul>';
         workoutDivs[i].innerHTML += '<li>' + upperMain[i] + '</li>';
@@ -81,14 +81,14 @@
         workoutDivs[i].innerHTML += '<li>' + cardio[i] + '</li>';
         workoutDivs[i].innerHTML += '</ul>';
 
-    };
+    }
 
 
 
 
     document.getElementById("generateButton").addEventListener("click", function(event){
         document.getElementById('generatorForm').submit();
-    })
+    });
 
 
 

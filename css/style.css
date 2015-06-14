@@ -1,0 +1,195 @@
+*, *:before, *:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+body {
+  width: 100%;
+  font-family: 'PT Sans', sans-serif;
+}
+
+header {
+  text-align: center;
+  background-color: #eaeaea;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+header h3 {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+#selectForm {
+  padding: 20px;
+  padding-top: 40px;
+  border: 2px solid black;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#selectForm label {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+}
+#selectForm label input[type="checkbox"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: 50px;
+  border: 2px solid #555;
+  outline: none;
+}
+#selectForm label input[type="checkbox"]:checked {
+  background-color: blue;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: 50px;
+  border: 2px solid #555;
+  outline: none;
+}
+input[type="checkbox"]:checked {
+  background-color: blue;
+}
+
+#firstEquipDiv {
+  border-left: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.equipSelect {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 5px;
+  border-top: 2px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  border-right: 2px solid rgba(0, 0, 0, 0.3);
+  width: 150px;
+  height: 30px;
+}
+
+legend {
+  padding-right: 10px;
+}
+
+div.equipSelect label {
+  padding-right: 10px;
+}
+
+#generateButton {
+  width: 37%;
+  margin: 0 auto;
+}
+
+#powerWrap {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px auto;
+}
+
+#power1, #power2 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.workoutDiv {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 1vw;
+  line-height: 2em;
+  border: 1px solid black;
+}
+
+.workoutDiv ul {
+  margin: 0;
+  padding: 5px 15px;
+}
+
+#powerWrap div li {
+  list-style: none;
+  text-shadow: none;
+}
+
+.blue {
+  background-color: steelblue;
+}
+
+.silver {
+  background-color: silver;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: lightblue;
+  color: black;
+  border-radius: 20px;
+}
+button:checked {
+  background-color: black;
+  color: white;
+}
