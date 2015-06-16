@@ -1,4 +1,7 @@
 // (function () {
+
+    //Arrays and variables
+
     var upperWorkoutMain = [], upperWorkoutAccessory = [], lowerWorkoutMain = [], lowerWorkoutAccessory = [], cardioWorkout = [];
 
     var barbellUpperDB = ['Bench Press','Military Press','Bent-over Row', 'Push Press', 'Close-grip Bench Press', 'barbell curl', 'blu7', 'blu8', 'blu9', 'blu10'];
@@ -11,18 +14,39 @@
     var trxUpperDB = ['TRX Chest Press', 'TRX Ys and Ts', 'TRX Bicep Curl', 'TRX Tricep Press', 'TRX Low Row', 'TRXu 6', 'TRXu 7', 'TRXu 8', 'TRXu 9', 'TRXu 10'];
     var trxLowerDB = ['TRX Squat', 'TRX Lunge', 'TRXl 3', 'TRXl 4', 'TRXl 5', 'TRXl 6', 'TRXl 7', 'TRXl 4', 'TRXl 3', 'TRXl 4'];
 
-    var totalUpperMain = ['Push Up', 'Pull Up', '', ''];
+    var totalUpperMain = barbellUpperDB;
     var totalUpperAccessory = dumbellUpperDB;
     var totalLowerMain = barbellLowerDB;
     var totalLowerAccessory = dumbellLowerDB;
     var totalCardioEx = cardioDB;
+
+
+
+//Button like checkbox
+
+    var checked = document.getElementById('test');
+    var checkedLabel = document.getElementById('testLabel');
+    var inputs = document.getElementsByTagName("input");
+    var labels = document.getElementsByTagName("label");
+
+    function checkCheckbox(){
+        for(var i = 0; i < inputs.length; i++){
+            if(inputs[i].checked === true ){
+                labels[i].classList.add('checked');
+            }else{
+                labels[i].classList.remove('checked');
+            }
+        }
+    };
+
+
+
+
+//Exercise Randomizer
   
 
     var barbell = document.getElementById('barbells');
-    
-    if(barbell.checked){
-        totalUpperMain.push('Bench Press','Military Press','Bent-over Row', 'Push Press', 'Close-grip Bench Press', 'barbell curl', 'blu7', 'blu8', 'blu9', 'blu10');
-    }
+
         
     function random(max) {
         return Math.floor(Math.random() * max);
@@ -53,7 +77,6 @@
     };
 
 
-
     var upperMain = mainExerciseGenerator(upperWorkoutMain, totalUpperMain);
     console.log( upperMain);
 
@@ -70,7 +93,10 @@
     console.log(cardio);
 
 
+//Put Exercises in HTML
+
     var workoutDivs = document.getElementsByClassName("workoutDiv");
+
     for (var i = 0; i < workoutDivs.length; i++) {
 
         workoutDivs[i].innerHTML = '<ul>';
@@ -85,14 +111,11 @@
 
 
 
+//Generator Button w/ Event Listener
 
     document.getElementById("generateButton").addEventListener("click", function(event){
         document.getElementById('generatorForm').submit();
     });
-
-
-
-
 
 
 // })();

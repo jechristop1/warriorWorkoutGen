@@ -19,113 +19,163 @@ header {
     text-align: center;
     background-color: #eaeaea;
     padding: 20px;
-}
-
-header h1{
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-header h3{
-    font-size: 15px;
-    margin-bottom: 20px;
+    height: 30vh;
+    h1{
+        margin: 10px 0;
+        font-size: 1.5em;      
+    }
 }
 
 
-#selectForm{
-    padding: 20px;
-    padding-top: 40px;
-    border: 2px solid black;
+//Form styles
+
+form#selectForm{
     display: flex;
     align-items: center; 
-    justify-content: center;
-    
-
-
-
-
-
-
-
-    label{
-        flex: 1;
-        text-align: center;
-
-        input[type="checkbox"]{
-            appearance:none;
-            height:50px;
-            border:2px solid #555;
-            outline: none;
-            &:checked{
-                background-color: blue;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-bottom: 5px;
+    div#checkContainer{
+        display: flex;
+        align-items: center; 
+        justify-content: space-around;
+        width: 100%;
+        label{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: hsla(0, 0%, 91%, 1);
+            padding: 10px 20px;
+            border: 1px solid hsla(0, 0%, 16%, 1);
+            color: hsla(0, 0%, 16%, 1);
+            font-size: 1.75vw;
+            position: relative;
+            margin-right: 2px;
+            user-select: none;
+            -webkit-touch-callout: none;
+            &.checked {
+               background: hsla(0, 83%, 30%, 1);
+               color: whitesmoke;
             }
-        }
+            &:hover{
+                cursor: pointer;
+            }
+            input[type="checkbox"]{
+                opacity: 0;
+                position: absolute;
+                top: 25%;
+                left: 50%;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }    
+    }
+    button#generateButton{
+        width: 100%;
+        margin: 10px auto;
+        padding: 10px;
+        font-size: 1.5em;
+        outline: none;
     }
 
 }
 
-.checkboxContainer{
 
+//Generator button
+
+.myButton {
+    -moz-box-shadow: 0px 10px 14px -7px #3e7327;
+    -webkit-box-shadow: 0px 10px 14px -7px #3e7327;
+    box-shadow: 0px 10px 14px -7px #3e7327;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77b55a), color-stop(1, #72b352));
+    background:-moz-linear-gradient(top, #77b55a 5%, #72b352 100%);
+    background:-webkit-linear-gradient(top, #77b55a 5%, #72b352 100%);
+    background:-o-linear-gradient(top, #77b55a 5%, #72b352 100%);
+    background:-ms-linear-gradient(top, #77b55a 5%, #72b352 100%);
+    background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77b55a', endColorstr='#72b352',GradientType=0);
+    background-color:#77b55a;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #4b8f29;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:13px;
+    //-weight:bold;
+    padding:6px 12px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #5b8a3c;
 }
-
-input[type="checkbox"]{
-            appearance:none;
-            width: 100%;
-            height:50px;
-            border:2px solid #555;
-            outline: none;
-            &:checked{
-                background-color: blue;
-            }
-        }
-
-
-// form{
-//     display: -webkit-flex;
-//     display:         flex;
-//     justify-content: center;
-//     align-items: center;
-// }
-
-#firstEquipDiv{
-    border-left: 2px solid rgba(0,0,0,.3);
+.myButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #72b352), color-stop(1, #77b55a));
+    background:-moz-linear-gradient(top, #72b352 5%, #77b55a 100%);
+    background:-webkit-linear-gradient(top, #72b352 5%, #77b55a 100%);
+    background:-o-linear-gradient(top, #72b352 5%, #77b55a 100%);
+    background:-ms-linear-gradient(top, #72b352 5%, #77b55a 100%);
+    background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#72b352', endColorstr='#77b55a',GradientType=0);
+    background-color:#72b352;
 }
-
-.equipSelect{
-    display: -webkit-flex;
-    display:         flex;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    padding: 5px;
-    border-top: 2px solid rgba(0,0,0,.3);
-    border-bottom: 2px solid rgba(0,0,0,.3);
-    border-right: 2px solid rgba(0,0,0,.3);
-    width: 150px;
-    height: 30px;
-}
-
-
-
-legend{
-    padding-right: 10px;
+.myButton:active {
+    position:relative;
+    top:1px;
 }
 
 
-div.equipSelect label{
-    padding-right: 10px;
+//Checkbox buttons
+
+.myCheckbox {
+    box-shadow: 1px 2px 0px 0px #899599;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+    background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+    background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+    background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+    background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+    background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+    background-color:#ededed;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #4b8f29;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    //font-family:Arial;
+    //font-size:13px;
+    //font-weight:bold;
+    padding:6px 12px;
+    text-decoration:none;
+    //text-shadow:0px 1px 0px #5b8a3c;
+}
+.myCheckbox:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
+    background-color:#bab1ba;
+}
+.myCheckbox:active {
+    position:relative;
+    top:1px;
 }
 
-#generateButton{
-    width: 37%;
-    margin: 0 auto;
-}
 
+
+//Exercise sections
 
 
 #powerWrap{
     width: 100vw;
-    height: 100vh;
+    height: 70vh;
     display: -webkit-flex;
     display:         flex;
     -webkit-align-items: center;
@@ -133,38 +183,39 @@ div.equipSelect label{
     -webkit-justify-content: center;
     justify-content: center;
     flex-direction: column;
-    margin: 10px auto;
+    section#power1, 
+    section#power2{
+        display: -webkit-flex;
+        display:         flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 35vh;
+        width: 100vw;
+    }
+    div li{
+        list-style: none;
+        text-shadow: none;
+
+    }
 }
 
-#power1, #power2{
-    display: -webkit-flex;
-    display:         flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-}
+
 
 .workoutDiv{
-    display: -webkit-flex;
-    display:         flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 1;
-    font-size: 1vw;
+    font-size: 1.2em;
     line-height: 2em;
     border: 1px solid black;
+    //padding: 10px 0; 
 }
 
 .workoutDiv ul {
     margin: 0;
     padding: 5px 15px;
-}
-#powerWrap div li{
-    list-style: none;
-    text-shadow: none;
-
 }
 
 .blue{
@@ -176,15 +227,3 @@ div.equipSelect label{
 }
 
 
-
-
-button{
-      padding: 10px 20px;
-      background-color: hsl(195, 53%, 79%);
-      color: hsl(0, 0%, 0%);
-      border-radius: 20px;
-    &:checked{
-        background-color: black;
-        color: white;
-    }
-}

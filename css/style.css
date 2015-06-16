@@ -20,101 +20,146 @@ header {
   text-align: center;
   background-color: #eaeaea;
   padding: 20px;
+  height: 30vh;
 }
-
 header h1 {
-  font-size: 20px;
-  margin-bottom: 5px;
+  margin: 10px 0;
+  font-size: 1.5em;
 }
 
-header h3 {
-  font-size: 15px;
-  margin-bottom: 20px;
-}
-
-#selectForm {
-  padding: 20px;
-  padding-top: 40px;
-  border: 2px solid black;
+form#selectForm {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 5px;
 }
-#selectForm label {
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  text-align: center;
-}
-#selectForm label input[type="checkbox"] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  height: 50px;
-  border: 2px solid #555;
-  outline: none;
-}
-#selectForm label input[type="checkbox"]:checked {
-  background-color: blue;
-}
-
-input[type="checkbox"] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  width: 100%;
-  height: 50px;
-  border: 2px solid #555;
-  outline: none;
-}
-input[type="checkbox"]:checked {
-  background-color: blue;
-}
-
-#firstEquipDiv {
-  border-left: 2px solid rgba(0, 0, 0, 0.3);
-}
-
-.equipSelect {
+form#selectForm div#checkContainer {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
-  -ms-flex-align: center;
-      align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  width: 100%;
+}
+form#selectForm div#checkContainer label {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-justify-content: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  padding: 5px;
-  border-top: 2px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-  border-right: 2px solid rgba(0, 0, 0, 0.3);
-  width: 150px;
-  height: 30px;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #e8e8e8;
+  padding: 10px 20px;
+  border: 1px solid #292929;
+  color: #292929;
+  font-size: 1.75vw;
+  position: relative;
+  margin-right: 2px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-touch-callout: none;
+}
+form#selectForm div#checkContainer label.checked {
+  background: #8c0d0d;
+  color: whitesmoke;
+}
+form#selectForm div#checkContainer label:hover {
+  cursor: pointer;
+}
+form#selectForm div#checkContainer label input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+}
+form#selectForm div#checkContainer label input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+form#selectForm button#generateButton {
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 1.5em;
+  outline: none;
 }
 
-legend {
-  padding-right: 10px;
+.myButton {
+  box-shadow: 0px 10px 14px -7px #3e7327;
+  background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#77b55a', endColorstr='#72b352',GradientType=0);
+  background-color: #77b55a;
+  border-radius: 4px;
+  border: 1px solid #4b8f29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 12px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #5b8a3c;
 }
 
-div.equipSelect label {
-  padding-right: 10px;
+.myButton:hover {
+  background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#72b352', endColorstr='#77b55a',GradientType=0);
+  background-color: #72b352;
 }
 
-#generateButton {
-  width: 37%;
-  margin: 0 auto;
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.myCheckbox {
+  box-shadow: 1px 2px 0px 0px #899599;
+  background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+  background-color: #ededed;
+  border-radius: 4px;
+  border: 1px solid #4b8f29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.myCheckbox:hover {
+  background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
+  background-color: #bab1ba;
+}
+
+.myCheckbox:active {
+  position: relative;
+  top: 1px;
 }
 
 #powerWrap {
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -127,10 +172,9 @@ div.equipSelect label {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 10px auto;
 }
-
-#power1, #power2 {
+#powerWrap section#power1,
+#powerWrap section#power2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -140,8 +184,12 @@ div.equipSelect label {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100vh;
+  height: 35vh;
   width: 100vw;
+}
+#powerWrap div li {
+  list-style: none;
+  text-shadow: none;
 }
 
 .workoutDiv {
@@ -160,7 +208,7 @@ div.equipSelect label {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  font-size: 1vw;
+  font-size: 1.2em;
   line-height: 2em;
   border: 1px solid black;
 }
@@ -170,26 +218,10 @@ div.equipSelect label {
   padding: 5px 15px;
 }
 
-#powerWrap div li {
-  list-style: none;
-  text-shadow: none;
-}
-
 .blue {
   background-color: steelblue;
 }
 
 .silver {
   background-color: silver;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: lightblue;
-  color: black;
-  border-radius: 20px;
-}
-button:checked {
-  background-color: black;
-  color: white;
 }

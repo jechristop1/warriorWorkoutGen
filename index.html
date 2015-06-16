@@ -4,72 +4,37 @@
     <meta charset="UTF-8">
     <title>Warrior FIT Rx | Workout Generator</title>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<!--     <link rel="stylesheet" type="text/css" href="css/jQuery.styles.css"> -->
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-
-        <input type="checkbox" value="balls" placeholder="Balls">
     <header>
-        <h1>Warrior FIT Rx</h1>
-        <h3>Workout Generator</h3>
+        <h1>Warrior FIT Rx - Workout Generator</h1>
+
+        <form id="selectForm">
+            <div id="checkContainer">
+                <label class="myCheckbox" for="test" onclick="checkCheckbox();">TEST
+                    <input type="checkbox" id="test" value="test">
+                </label>
+                <label class="myCheckbox" for="test2" onclick="checkCheckbox();">TEST2
+                    <input type="checkbox" id="test2" value="test2">
+                </label>
+                <label class="myCheckbox" for="test3" onclick="checkCheckbox();">TEST3
+                    <input type="checkbox" id="test3" value="test3">
+                </label>
+                <label class="myCheckbox" for="test4" onclick="checkCheckbox();">TEST4
+                    <input type="checkbox" id="test4" value="test4">
+                </label>
+                <label class="myCheckbox" for="test5" onclick="checkCheckbox();">TEST5
+                    <input type="checkbox" id="test5" value="test5">
+                </label>
+                <label class="myCheckbox" for="test6" onclick="checkCheckbox();">TEST6
+                    <input type="checkbox" id="test6" value="test6">
+                </label>
+            </div>
+
+            <button class="myButton" id="generateButton">Generate Workout</button>
+        </form>
     </header>
-
-    <div id="selectForm">
-               <!--  <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup" data-type="horizontal">
-                <legend>Font styling:</legend>
-                <input type="checkbox" name="checkbox-6" id="checkbox-6" class="custom" />
-                <label for="checkbox-6">b</label>
-
-                <input type="checkbox" name="checkbox-7" id="checkbox-7" class="custom" />
-                <label for="checkbox-7"><em>i</em></label>
-
-                <input type="checkbox" name="checkbox-8" id="checkbox-8" class="custom" />
-                <label for="checkbox-8">u</label>    
-            </fieldset>
-        </div>
- -->     
-        <div class='checkboxContainer'>
-            <input type="checkbox" value="barbells">
-            <label>Barbells</label>
-        </div>
-
-
-
-
-
-        <label>
-            <input type="checkbox" value="dumbells">
-            <span>Dumbells</span>
-        </label>
-        <label>
-            <input type="checkbox" value="sled">
-            <span>Sled</span>
-        </label>
-        
-        <label>
-            <input type="checkbox" value="treadmill">
-            <span>Treadmill</span>
-        </label>
-        
-        <label>
-            <input type="checkbox" value="bike">
-            <span>Bike</span>
-        </label>
-        
-        <label>
-            <input type="checkbox" value="TRX">
-            <span>TRX</span>
-        </label>
-        
-        <label>
-            <input type="checkbox" value="kettlebells">
-            <span>Kettlebells</span>
-        </label>
-        
-
-    </div>
 
 
     <div id="powerWrap">
@@ -84,8 +49,6 @@
                 <div class="workoutDiv blue"></div>
             </section>
     </div>
-   <!--  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="js/jQuery.mobile.js"></script> -->
-    <!-- <script type="text/javascript" src="js/script.js"></script> -->
+    <script src="js/script.js"></script>
 </body>
 </html>
