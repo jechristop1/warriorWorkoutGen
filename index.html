@@ -10,30 +10,33 @@
     <header>
         <h1>Warrior FIT Rx - Workout Generator</h1>
 
-        <form id="selectForm">
+        <div id="selectForm">
             <div id="checkContainer">
-                <label class="myCheckbox" for="test" onclick="checkCheckbox();">TEST
-                    <input type="checkbox" id="test" value="test">
+                <label class="myCheckbox" for="barbell" onclick="checkCheckbox();">Barbell
+                    <input type="checkbox" id="barbell" value="barbell">
                 </label>
-                <label class="myCheckbox" for="test2" onclick="checkCheckbox();">TEST2
-                    <input type="checkbox" id="test2" value="test2">
+                <label class="myCheckbox" for="dumbell" onclick="checkCheckbox();">Dumbell
+                    <input type="checkbox" id="dumbell" value="dumbell">
                 </label>
-                <label class="myCheckbox" for="test3" onclick="checkCheckbox();">TEST3
-                    <input type="checkbox" id="test3" value="test3">
+                <label class="myCheckbox" for="kettlebell" onclick="checkCheckbox();">Kettlebell
+                    <input type="checkbox" id="kettlebell" value="kettlebell">
                 </label>
-                <label class="myCheckbox" for="test4" onclick="checkCheckbox();">TEST4
-                    <input type="checkbox" id="test4" value="test4">
+                <label class="myCheckbox" for="trx" onclick="checkCheckbox();">TRX
+                    <input type="checkbox" id="trx" value="trx">
                 </label>
-                <label class="myCheckbox" for="test5" onclick="checkCheckbox();">TEST5
-                    <input type="checkbox" id="test5" value="test5">
+                <label class="myCheckbox" for="bike" onclick="checkCheckbox();">Bike
+                    <input type="checkbox" id="bike" value="bike">
                 </label>
-                <label class="myCheckbox" for="test6" onclick="checkCheckbox();">TEST6
-                    <input type="checkbox" id="test6" value="test6">
+                <label class="myCheckbox" for="treadmill" onclick="checkCheckbox();">Treadmill
+                    <input type="checkbox" id="treadmill" value="treadmill">
                 </label>
+                <label class="myCheckbox" for="elliptical" onclick="checkCheckbox();">Elliptical
+                    <input type="checkbox" id="elliptical" value="elliptical">
+                </label>                
             </div>
 
-            <button class="myButton" id="generateButton">Generate Workout</button>
-        </form>
+            <button class="myButton" id="generateButton" onclick="mainFunction()">Generate Workout</button>
+        </div>
     </header>
 
 

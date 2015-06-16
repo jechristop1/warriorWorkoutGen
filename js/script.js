@@ -1,6 +1,9 @@
 // (function () {
 
-    //Arrays and variables
+
+/*******************
+Arrays and variables
+********************/
 
     var upperWorkoutMain = [], upperWorkoutAccessory = [], lowerWorkoutMain = [], lowerWorkoutAccessory = [], cardioWorkout = [];
 
@@ -17,12 +20,21 @@
     var totalUpperMain = barbellUpperDB;
     var totalUpperAccessory = dumbellUpperDB;
     var totalLowerMain = barbellLowerDB;
-    var totalLowerAccessory = dumbellLowerDB;
+    var totalLowerAccessory = barbellLowerDB;
     var totalCardioEx = cardioDB;
 
 
+/*************************************************************
+Checkbox and concat here so array is created before page loads
+**************************************************************/
 
-//Button like checkbox
+
+
+
+
+/*******************
+Button like checkbox
+********************/
 
     var checked = document.getElementById('test');
     var checkedLabel = document.getElementById('testLabel');
@@ -41,18 +53,15 @@
 
 
 
-
-//Exercise Randomizer
-  
-
-    var barbell = document.getElementById('barbells');
-
+/*******************
+Exercise Randomizer
+********************/
         
     function random(max) {
         return Math.floor(Math.random() * max);
     }
 
-    var mainExerciseGenerator = function(workoutArray, exerDatabase){
+    var exerciseGenerator = function(workoutArray, exerDatabase){
         for (var i = 0; i < 4; i++) {
             var exercise = exerDatabase[random(exerDatabase.length)];
             if (workoutArray.indexOf(exercise) === -1) {
@@ -64,58 +73,56 @@
         return workoutArray;
     };
 
-    var accessoryExerciseGenerator = function(workoutArray, exerDatabase){
-        for (var i = 0; i < 4; i++) {
-            var exercise = exerDatabase[random(exerDatabase.length)];
-            if (workoutArray.indexOf(exercise) === -1) {
-                workoutArray.push(exercise);
-            } else {
-                --i;
-            }
-        }
-        return workoutArray;
-    };
-
-
-    var upperMain = mainExerciseGenerator(upperWorkoutMain, totalUpperMain);
+    var upperMain = exerciseGenerator(upperWorkoutMain, totalUpperMain);
     console.log( upperMain);
 
-    var upperAccessory = accessoryExerciseGenerator(upperWorkoutAccessory, totalUpperAccessory);
+    var upperAccessory = exerciseGenerator(upperWorkoutAccessory, totalUpperAccessory);
     console.log( upperAccessory);
 
-    var lowerMain = mainExerciseGenerator(lowerWorkoutMain, totalLowerMain);
+    var lowerMain = exerciseGenerator(lowerWorkoutMain, totalLowerMain);
     console.log(lowerMain);
 
-    var lowerAccessory = accessoryExerciseGenerator(lowerWorkoutAccessory, totalLowerAccessory);
+    var lowerAccessory = exerciseGenerator(lowerWorkoutAccessory, totalLowerAccessory);
     console.log(lowerAccessory);
 
-    var cardio = mainExerciseGenerator(cardioWorkout, totalCardioEx);
+    var cardio = exerciseGenerator(cardioWorkout, totalCardioEx);
     console.log(cardio);
 
-
-//Put Exercises in HTML
+/*******************
+Put Exercises in HTML
+********************/
 
     var workoutDivs = document.getElementsByClassName("workoutDiv");
 
+function mainFunction(e){
+
     for (var i = 0; i < workoutDivs.length; i++) {
 
-        workoutDivs[i].innerHTML = '<ul>';
-        workoutDivs[i].innerHTML += '<li>' + upperMain[i] + '</li>';
-        workoutDivs[i].innerHTML += '<li>' + upperAccessory[i] + '</li>';
-        workoutDivs[i].innerHTML += '<li>' + lowerMain[i] + '</li>';
-        workoutDivs[i].innerHTML += '<li>' + lowerAccessory[i] + '</li>';
-        workoutDivs[i].innerHTML += '<li>' + cardio[i] + '</li>';
-        workoutDivs[i].innerHTML += '</ul>';
+        workoutDivs[i].innerHTML += '<p>' + upperMain[i] + '</p>';
+        workoutDivs[i].innerHTML += '<p>' + upperAccessory[i] + '</p>';
+        workoutDivs[i].innerHTML += '<p>' + lowerMain[i] + '</p>';
+        workoutDivs[i].innerHTML += '<p>' + lowerAccessory[i] + '</p>';
+        workoutDivs[i].innerHTML += '<p>' + cardio[i] + '</p>';
 
     }
 
+    //workoutReset();
+
+}
+
+function workoutReset(){
+    for (var i = 0; i < workoutDivs.length; i++) {
+
+        workoutDivs[i].innerHTML = "";
+        workoutDivs[i].innerHTML = "";
+        workoutDivs[i].innerHTML = "";
+        workoutDivs[i].innerHTML = "";
+        workoutDivs[i].innerHTML = "";
+
+    }
+}
 
 
-//Generator Button w/ Event Listener
-
-    document.getElementById("generateButton").addEventListener("click", function(event){
-        document.getElementById('generatorForm').submit();
-    });
 
 
 // })();
