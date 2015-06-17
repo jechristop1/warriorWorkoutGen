@@ -6,29 +6,66 @@ Arrays and variables
 ********************/
 
     var upperWorkoutMain = [], upperWorkoutAccessory = [], lowerWorkoutMain = [], lowerWorkoutAccessory = [], cardioWorkout = [];
-
+    var totalUpperMain = [1,2,3,4], 
+        totalUpperAccessory = [1,2,3,4], 
+        totalLowerMain = [1,2,3,4], 
+        totalLowerAccessory = [1,2,3,4], 
+        totalCardioEx = [1,2,3,4];
     var barbellUpperDB = ['Bench Press','Military Press','Bent-over Row', 'Push Press', 'Close-grip Bench Press', 'barbell curl', 'blu7', 'blu8', 'blu9', 'blu10'];
     var barbellLowerDB = ['Back Squat','Front Squat','Deadlift', 'Stiff-legged Deadlift', 'Barbell lunge', 'Trap bar Deadlift', 'bll7', 'bll8', 'bll9', 'bll10'];
     var dumbellUpperDB = ['Dumbell Incline Bench','Dumbell Press','Dumbell Curls', 'Shoulder Laterals', 'Tricep Extension', 'Hammer curl', 'dlu7', 'dlu8', 'dlu9', 'dlu10' ];
     var dumbellLowerDB = ['Dumbell Lunge','Dumbell Stiff-leg Deadlift','Dumbell Step Ups', 'Sumo Squat', 'dll5', 'dll6', 'dll7', 'dll8', 'dll8', 'dll9', 'dll10'];
-    var cardioDB = ['Sled','Treadmill','Bike', 'sprint', 'elliptical', 'rower', 'c7', 'c8' , 'c9', 'c10'];
+    var cardioDB = ['sprint', 'jumping jacks', 'power walk' , 'jump rope'];
     var kettlebellUpperDB = ['kbu1', 'kbu2','kbu3', 'kbu4','kbu5', 'kbu6','kbu7', 'kbu8', 'kbu9', 'kbu10'];
     var kettlebellLowerDB = ['kbl1', 'kbl2','kbl3', 'kbl4','kbl5', 'kbl6','kbl7', 'kbl8', 'kbl9', 'kbl10'];
     var trxUpperDB = ['TRX Chest Press', 'TRX Ys and Ts', 'TRX Bicep Curl', 'TRX Tricep Press', 'TRX Low Row', 'TRXu 6', 'TRXu 7', 'TRXu 8', 'TRXu 9', 'TRXu 10'];
     var trxLowerDB = ['TRX Squat', 'TRX Lunge', 'TRXl 3', 'TRXl 4', 'TRXl 5', 'TRXl 6', 'TRXl 7', 'TRXl 4', 'TRXl 3', 'TRXl 4'];
 
-    var totalUpperMain = barbellUpperDB;
-    var totalUpperAccessory = dumbellUpperDB;
-    var totalLowerMain = barbellLowerDB;
-    var totalLowerAccessory = barbellLowerDB;
-    var totalCardioEx = cardioDB;
-
-
 /*************************************************************
 Checkbox and concat here so array is created before page loads
 **************************************************************/
 
+    var barbell = document.getElementById('barbell'),
+        dumbell = document.getElementById('dumbell'),
+        kettlebell = document.getElementById('kettlebell'),
+        trx = document.getElementById('trx'),
+        bike = document.getElementById('bike'),
+        treadmill = document.getElementById('treadmill'),
+        elliptical = document.getElementById('elliptical'),
+        sled = document.getElementById('sled'),
+        rower = document.getElementById('rower');
 
+        if(barbell.checked){
+            totalUpperMain += totalUpperMain.concat(barbellUpperDB);
+            totalLowerMain += totalLowerMain.concat(barbellLowerDB);
+        }
+        if(dumbell.checked){
+            totalUpperAccessory += totalUpperAccessory.concat(dumbellUpperDB);
+            totalLowerAccessory += totalLowerAccessory.concat(dumbellLowerDB);    
+        }
+        if(kettlebell.checked){
+            totalUpperAccessory += totalUpperAccessory.concat(kettlebellUpperDB);
+            totalLowerAccessory += totalLowerAccessory.concat(kettlebellLowerDB);    
+        }
+        if(trx.checked){
+            totalUpperAccessory += totalUpperAccessory.concat(trxUpperDB);
+            totalLowerAccessory += totalLowerAccessory.concat(trxLowerDB);    
+        }
+        if(bike.checked){
+            totalCardioEx += totalCardioEx.push('Bike');
+        }
+        if(treadmill.checked){
+            totalCardioEx += totalCardioEx.push('Treadmill');
+        }
+        if(elliptical.checked){
+            totalCardioEx += totalCardioEx.push('Elliptical');
+        }
+        if(sled.checked){
+            totalCardioEx += totalCardioEx.push('Sled');
+        }
+        if(rower.checked){
+            totalCardioEx += totalCardioEx.push('Rower');
+        }
 
 
 
@@ -51,8 +88,6 @@ Button like checkbox
         }
     };
 
-
-
 /*******************
 Exercise Randomizer
 ********************/
@@ -62,6 +97,7 @@ Exercise Randomizer
     }
 
     var exerciseGenerator = function(workoutArray, exerDatabase){
+        
         for (var i = 0; i < 4; i++) {
             var exercise = exerDatabase[random(exerDatabase.length)];
             if (workoutArray.indexOf(exercise) === -1) {
@@ -72,6 +108,14 @@ Exercise Randomizer
         }
         return workoutArray;
     };
+
+
+
+/*******************
+Put Exercises in HTML
+********************/
+
+
 
     var upperMain = exerciseGenerator(upperWorkoutMain, totalUpperMain);
     console.log( upperMain);
@@ -88,13 +132,8 @@ Exercise Randomizer
     var cardio = exerciseGenerator(cardioWorkout, totalCardioEx);
     console.log(cardio);
 
-/*******************
-Put Exercises in HTML
-********************/
-
     var workoutDivs = document.getElementsByClassName("workoutDiv");
 
-function mainFunction(e){
 
     for (var i = 0; i < workoutDivs.length; i++) {
 
@@ -106,21 +145,19 @@ function mainFunction(e){
 
     }
 
-    //workoutReset();
 
-}
 
-function workoutReset(){
-    for (var i = 0; i < workoutDivs.length; i++) {
 
-        workoutDivs[i].innerHTML = "";
-        workoutDivs[i].innerHTML = "";
-        workoutDivs[i].innerHTML = "";
-        workoutDivs[i].innerHTML = "";
-        workoutDivs[i].innerHTML = "";
 
-    }
-}
+
+
+
+
+
+
+
+
+
 
 
 

@@ -10,7 +10,7 @@
     <header>
         <h1>Warrior FIT Rx - Workout Generator</h1>
 
-        <div id="selectForm">
+        <form id="selectForm">
             <div id="checkContainer">
                 <label class="myCheckbox" for="barbell" onclick="checkCheckbox();">Barbell
                     <input type="checkbox" id="barbell" value="barbell">
@@ -32,11 +32,17 @@
                 </label>
                 <label class="myCheckbox" for="elliptical" onclick="checkCheckbox();">Elliptical
                     <input type="checkbox" id="elliptical" value="elliptical">
-                </label>                
+                </label>
+                <label class="myCheckbox" for="sled" onclick="checkCheckbox();">Sled
+                    <input type="checkbox" id="sled" value="sled">
+                </label>
+                <label class="myCheckbox" for="rower" onclick="checkCheckbox();">Rower
+                    <input type="checkbox" id="rower" value="rower">
+                </label>                                
             </div>
+            <button class="myButton" id="generateButton" onclick="myGenerator()">Generate Workout</button>
 
-            <button class="myButton" id="generateButton" onclick="mainFunction()">Generate Workout</button>
-        </div>
+        </form>
     </header>
 
 
