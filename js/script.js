@@ -20,7 +20,7 @@ var trxLowerDB = ['TRX Squat', 'TRX Lunge', 'TRXl 3', 'TRXl 4', 'TRXl 5', 'TRXl 
 /*******************
 Make Button like checkbox
 ********************/
-
+var inputs = document.getElementsByTagName("input");
 var checked = document.getElementById('test');
 var checkedLabel = document.getElementById('testLabel');
 var labels = document.getElementsByTagName("label");
@@ -44,14 +44,13 @@ Checkbox and concat here so array is created before page loads
 
 **************************************************************/
 
-var inputs = document.getElementsByTagName("input"),
-    checkVal;
+
 
 for (var i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener('click', checkAndConcat);
 };
 
-
+var checkVal;
 function checkAndConcat(e){
     checkVal = e.currentTarget;
     if(checkVal.checked){
