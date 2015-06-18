@@ -2,16 +2,12 @@
 Arrays and variables
 ********************/
 var upperWorkoutMain = [], upperWorkoutAccessory = [], lowerWorkoutMain = [], lowerWorkoutAccessory = [], cardioWorkout = [];
-var totalUpperMain = [1,2,3,4], 
-    totalUpperAccessory = [1,2,3,4], 
-    totalLowerMain = [1,2,3,4], 
-    totalLowerAccessory = [1,2,3,4], 
-    totalCardioEx = [1,2,3,4];
+var totalUpperMain = [], totalUpperAccessory = [], totalLowerMain = [], totalLowerAccessory = [];
+var totalCardioEx = ['sprint', 'jumping jacks', 'power walk' , 'jump rope'];
 var barbellUpperDB = ['Bench Press','Military Press','Bent-over Row', 'Push Press', 'Close-grip Bench Press', 'barbell curl', 'blu7', 'blu8', 'blu9', 'blu10'];
 var barbellLowerDB = ['Back Squat','Front Squat','Deadlift', 'Stiff-legged Deadlift', 'Barbell lunge', 'Trap bar Deadlift', 'bll7', 'bll8', 'bll9', 'bll10'];
 var dumbellUpperDB = ['Dumbell Incline Bench','Dumbell Press','Dumbell Curls', 'Shoulder Laterals', 'Tricep Extension', 'Hammer curl', 'dlu7', 'dlu8', 'dlu9', 'dlu10' ];
 var dumbellLowerDB = ['Dumbell Lunge','Dumbell Stiff-leg Deadlift','Dumbell Step Ups', 'Sumo Squat', 'dll5', 'dll6', 'dll7', 'dll8', 'dll8', 'dll9', 'dll10'];
-var cardioDB = ['sprint', 'jumping jacks', 'power walk' , 'jump rope'];
 var kettlebellUpperDB = ['kbu1', 'kbu2','kbu3', 'kbu4','kbu5', 'kbu6','kbu7', 'kbu8', 'kbu9', 'kbu10'];
 var kettlebellLowerDB = ['kbl1', 'kbl2','kbl3', 'kbl4','kbl5', 'kbl6','kbl7', 'kbl8', 'kbl9', 'kbl10'];
 var trxUpperDB = ['TRX Chest Press', 'TRX Ys and Ts', 'TRX Bicep Curl', 'TRX Tricep Press', 'TRX Low Row', 'TRXu 6', 'TRXu 7', 'TRXu 8', 'TRXu 9', 'TRXu 10'];
@@ -37,11 +33,6 @@ function checkCheckbox(){
 
 /*************************************************************
 Checkbox and concat here so array is created before page loads
-
-    Issue when trying to remove a selection that was clicked
-    try wrapping in function and only calling after all selections
-    finalized.
-
 **************************************************************/
 
 
@@ -57,27 +48,27 @@ function checkAndConcat(e){
         checkVal = e.currentTarget.value;
         if(checkVal == 'barbell'){
             console.log(checkVal);
-            totalUpperMain += totalUpperMain.concat(barbellUpperDB);
-            totalLowerMain += totalLowerMain.concat(barbellLowerDB);
+            totalUpperMain = totalUpperMain.concat(barbellUpperDB);
+            totalLowerMain = totalLowerMain.concat(barbellLowerDB);
             console.log(totalUpperMain);
             console.log(totalLowerMain);
         }
         if(checkVal == 'dumbell'){
             console.log(checkVal);
-            totalUpperAccessory += totalUpperAccessory.concat(dumbellUpperDB);
-            totalLowerAccessory += totalLowerAccessory.concat(dumbellLowerDB);
+            totalUpperAccessory = totalUpperAccessory.concat(dumbellUpperDB);
+            totalLowerAccessory = totalLowerAccessory.concat(dumbellLowerDB);
             console.log(totalUpperAccessory);
             console.log(totalLowerAccessory);
         }
         if(checkVal == 'kettlebell'){
-            totalUpperAccessory += totalUpperAccessory.concat(kettlebellUpperDB);
-            totalLowerAccessory += totalLowerAccessory.concat(kettlebellLowerDB); 
+            totalUpperAccessory = totalUpperAccessory.concat(kettlebellUpperDB);
+            totalLowerAccessory = totalLowerAccessory.concat(kettlebellLowerDB); 
             console.log(totalUpperAccessory);
             console.log(totalLowerAccessory);
         }
         if(checkVal == 'trx'){
-            totalUpperAccessory += totalUpperAccessory.concat(trxUpperDB);
-            totalLowerAccessory += totalLowerAccessory.concat(trxLowerDB); 
+            totalUpperAccessory = totalUpperAccessory.concat(trxUpperDB);
+            totalLowerAccessory = totalLowerAccessory.concat(trxLowerDB); 
             console.log(totalUpperAccessory);
             console.log(totalLowerAccessory);
         }
@@ -109,22 +100,68 @@ function checkAndConcat(e){
 Exercise Randomizer
 ********************/
         
-function random(max) {
-    return Math.floor(Math.random() * max);
+// function random(max) {
+//     return Math.floor(Math.random() * max);
+// }
+
+// var exerciseGenerator = function(workoutArray, exerDatabase){
+    
+//     for (var i = 0; i < 4; i++) {
+//         var exercise = exerDatabase[random(exerDatabase.length)];
+//         if (workoutArray.indexOf(exercise) === -1) {
+//             workoutArray.push(exercise);
+//         } else {
+//             i--;
+//         }
+//     }
+//     return workoutArray;
+// }; 
+
+
+
+
+function shuffle(array) {
+  var copy = [], n = array.length, i;
+
+  // While there remain elements to shuffle…
+  while (n) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * n--);
+
+    // And move it to the new array.
+    copy.push(array.splice(i, 1)[0]);
+  }
+
+  return copy;
 }
 
 var exerciseGenerator = function(workoutArray, exerDatabase){
-    
+    var shuffledDatabase = shuffle(exerDatabase);
+
     for (var i = 0; i < 4; i++) {
-        var exercise = exerDatabase[random(exerDatabase.length)];
-        if (workoutArray.indexOf(exercise) === -1) {
-            workoutArray.push(exercise);
+        var exercise = shuffledDatabase[i];
+        if(exercise === undefined){
+            workoutArray.push('Choose your Own Exer');
         } else {
-            --i;
+            if (workoutArray.indexOf(exercise) === -1) {
+                workoutArray.push(exercise);
+            }else{
+                if(exercise === undefined){
+                    workoutArray.push('Choose your Own Exer');
+                }
+                break;
+                //i--; 
+            }            
         }
+
     }
+    
     return workoutArray;
 }; 
+
+
+
 
 
 /*******************
@@ -133,17 +170,9 @@ Put Exercises in HTML
 
 
 var workoutDivs = document.getElementsByClassName("workoutDiv");
-    
-
+var pTags = document.getElementsByTagName('p');   
+var pTag, containerDiv, node;
 function makeWorkouts(e){
-
-    for (var i = 0; i < workoutDivs.length; i++) {
-        workoutDivs[i].innerHTML += '<p>' + "" + '</p>';
-        workoutDivs[i].innerHTML += '<p>' + "" + '</p>';
-        workoutDivs[i].innerHTML += '<p>' + "" + '</p>';
-        workoutDivs[i].innerHTML += '<p>' + "" + '</p>';
-        workoutDivs[i].innerHTML += '<p>' + "" + '</p>';
-    }
 
 
     var upperMain = exerciseGenerator(upperWorkoutMain, totalUpperMain);
@@ -171,13 +200,23 @@ function makeWorkouts(e){
     }
 
 
+};
+
+
+
+
+
+function resetFunction() {
+    var sections = document.getElementsByTagName('section');
+    var node;
+    for (var i = 0; i < sections.length; i++){
+        node = document.getElementById(sections[i]);
+        while (node.hasChildNodes()) {
+            node.removeChild(node.firstChild);
+        }
+            
+    }
 }
-
-
-
-
-
-
 
 
 
