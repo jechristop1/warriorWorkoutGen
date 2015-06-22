@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Warrior FIT Rx | Workout Generator</title>
+    
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css"/>
 </head>
@@ -10,40 +11,48 @@
     <header>
         <h1>Warrior FIT Rx - Workout Generator</h1>
 
-        <div id="selectForm">
+        <form id="selectForm">
             <div id="checkContainer">
-                <label class="myCheckbox" for="barbell" onclick="checkCheckbox();">Barbell
-                    <input type="checkbox" id="barbell" value="barbell">
-                </label>
-                <label class="myCheckbox" for="dumbell" onclick="checkCheckbox();">Dumbell
-                    <input type="checkbox" id="dumbell" value="dumbell">
-                </label>
-                <label class="myCheckbox" for="kettlebell" onclick="checkCheckbox();">Kettlebell
-                    <input type="checkbox" id="kettlebell" value="kettlebell">
-                </label>
-                <label class="myCheckbox" for="trx" onclick="checkCheckbox();">TRX
-                    <input type="checkbox" id="trx" value="trx">
-                </label>
-                <label class="myCheckbox" for="bike" onclick="checkCheckbox();">Bike
-                    <input type="checkbox" id="bike" value="bike">
-                </label>
-                <label class="myCheckbox" for="treadmill" onclick="checkCheckbox();">Treadmill
-                    <input type="checkbox" id="treadmill" value="treadmill">
-                </label>
-                <label class="myCheckbox" for="elliptical" onclick="checkCheckbox();">Elliptical
-                    <input type="checkbox" id="elliptical" value="elliptical">
-                </label>
-                <label class="myCheckbox" for="sled" onclick="checkCheckbox();">Sled
-                    <input type="checkbox" id="sled" value="sled">
-                </label>
-                <label class="myCheckbox" for="rower" onclick="checkCheckbox();">Rower
-                    <input type="checkbox" id="rower" value="rower">
-                </label>                                
-            </div>
-            <button class="myButton" id="generateButton" onclick="makeWorkouts()">Generate Workout</button>
-            <button class="myButton" id="resetButton" onclick="resetFunction()">Reset Workout</button>
+                <div class="butContainers">
+                    <label class="myCheckbox" for="barbell" onclick="checkCheckbox();">Barbell
+                        <input type="checkbox" id="barbell" value="barbell">
+                    </label>
+                    <label class="myCheckbox" for="dumbell" onclick="checkCheckbox();">Dumbell
+                        <input type="checkbox" id="dumbell" value="dumbell">
+                    </label>
+                    <label class="myCheckbox" for="kettlebell" onclick="checkCheckbox();">Kettlebell
+                        <input type="checkbox" id="kettlebell" value="kettlebell">
+                    </label>
+                    <label class="myCheckbox" for="trx" onclick="checkCheckbox();">TRX
+                        <input type="checkbox" id="trx" value="trx">
+                    </label>                    
+                </div>
 
-        </div>
+                <div class="butContainers">
+                    <label class="myCheckbox" for="bike" onclick="checkCheckbox();">Bike
+                        <input type="checkbox" id="bike" value="bike">
+                    </label>
+                    <label class="myCheckbox" for="treadmill" onclick="checkCheckbox();">Treadmill
+                        <input type="checkbox" id="treadmill" value="treadmill">
+                    </label>
+                    <label class="myCheckbox" for="elliptical" onclick="checkCheckbox();">Elliptical
+                        <input type="checkbox" id="elliptical" value="elliptical">
+                    </label>
+                    <label class="myCheckbox" for="sled" onclick="checkCheckbox();">Sled
+                        <input type="checkbox" id="sled" value="sled">
+                    </label>
+                    <label class="myCheckbox" for="rower" onclick="checkCheckbox();">Rower
+                        <input type="checkbox" id="rower" value="rower">
+                    </label>    
+                </div>                            
+            </div> <!-- end of checkContainer -->
+            <div>
+                <button type="submit" class="myButton" id="generateButton">Generate Workout</button>
+<!--                 <button class="myButton" id="resetButton" onclick="resetFunction()">Reset Workout</button>   -->              
+            </div>
+
+
+        </form>
     </header>
 
 

@@ -35,8 +35,6 @@ function checkCheckbox(){
 Checkbox and concat here so array is created before page loads
 **************************************************************/
 
-
-
 for (var i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener('click', checkAndConcat);
 };
@@ -47,50 +45,35 @@ function checkAndConcat(e){
     if(checkVal.checked){
         checkVal = e.currentTarget.value;
         if(checkVal == 'barbell'){
-            console.log(checkVal);
             totalUpperMain = totalUpperMain.concat(barbellUpperDB);
             totalLowerMain = totalLowerMain.concat(barbellLowerDB);
-            console.log(totalUpperMain);
-            console.log(totalLowerMain);
         }
         if(checkVal == 'dumbell'){
-            console.log(checkVal);
             totalUpperAccessory = totalUpperAccessory.concat(dumbellUpperDB);
             totalLowerAccessory = totalLowerAccessory.concat(dumbellLowerDB);
-            console.log(totalUpperAccessory);
-            console.log(totalLowerAccessory);
         }
         if(checkVal == 'kettlebell'){
             totalUpperAccessory = totalUpperAccessory.concat(kettlebellUpperDB);
             totalLowerAccessory = totalLowerAccessory.concat(kettlebellLowerDB); 
-            console.log(totalUpperAccessory);
-            console.log(totalLowerAccessory);
         }
         if(checkVal == 'trx'){
             totalUpperAccessory = totalUpperAccessory.concat(trxUpperDB);
             totalLowerAccessory = totalLowerAccessory.concat(trxLowerDB); 
-            console.log(totalUpperAccessory);
-            console.log(totalLowerAccessory);
         }
         if(checkVal == 'bike' && totalCardioEx.indexOf('Bike') === -1){
             totalCardioEx[totalCardioEx.length] = 'Bike';
-            console.log(totalCardioEx);
         } 
         if(checkVal == 'treadmill' && totalCardioEx.indexOf('Treadmill') === -1){
             totalCardioEx[totalCardioEx.length] = 'Treadmill';
-            console.log(totalCardioEx);
         }
         if(checkVal == 'elliptical' && totalCardioEx.indexOf('Elliptical') === -1){
             totalCardioEx[totalCardioEx.length] = 'Elliptical';
-            console.log(totalCardioEx);
         }
         if(checkVal == 'sled' && totalCardioEx.indexOf('Sled') === -1){
             totalCardioEx[totalCardioEx.length] = 'Sled';
-            console.log(totalCardioEx);
         }
         if(checkVal == 'rower' && totalCardioEx.indexOf('Rower') === -1){
             totalCardioEx[totalCardioEx.length] = 'Rower';
-            console.log(totalCardioEx);
         }
 
     }
@@ -161,9 +144,6 @@ var exerciseGenerator = function(workoutArray, exerDatabase){
 }; 
 
 
-
-
-
 /*******************
 Put Exercises in HTML
 ********************/
@@ -171,23 +151,30 @@ Put Exercises in HTML
 
 var workoutDivs = document.getElementsByClassName("workoutDiv");
 var pTags = document.getElementsByTagName('p');   
-var pTag, containerDiv, node;
-function makeWorkouts(e){
+var pTag, containerDiv, upperMain, upperAccessory, lowerMain, lowerAccessory, cardio;
+
+var genButton = document.getElementsByName('generateButton');
+
+generateButton.addEventListener('click', makeWorkouts);
 
 
-    var upperMain = exerciseGenerator(upperWorkoutMain, totalUpperMain);
+
+function makeWorkouts(event){
+
+
+     upperMain = exerciseGenerator(upperWorkoutMain, totalUpperMain);
     console.log( upperMain);
 
-    var upperAccessory = exerciseGenerator(upperWorkoutAccessory, totalUpperAccessory);
+     upperAccessory = exerciseGenerator(upperWorkoutAccessory, totalUpperAccessory);
     console.log( upperAccessory);
 
-    var lowerMain = exerciseGenerator(lowerWorkoutMain, totalLowerMain);
+     lowerMain = exerciseGenerator(lowerWorkoutMain, totalLowerMain);
     console.log(lowerMain);
 
-    var lowerAccessory = exerciseGenerator(lowerWorkoutAccessory, totalLowerAccessory);
+     lowerAccessory = exerciseGenerator(lowerWorkoutAccessory, totalLowerAccessory);
     console.log(lowerAccessory);
 
-    var cardio = exerciseGenerator(cardioWorkout, totalCardioEx);
+     cardio = exerciseGenerator(cardioWorkout, totalCardioEx);
     console.log(cardio);
 
 
@@ -199,24 +186,30 @@ function makeWorkouts(e){
         workoutDivs[i].innerHTML += '<p>' + cardio[i] + '</p>';
     }
 
+    event.preventDefault();
+    document.getElementById('generateButton').removeEventListener('click', makeWorkouts, false);
 
-};
+ };
 
 
 
+// function resetFunction() {
+//     var upperMain = [],
+//     upperAccessory = [],
+//     lowerMain = [],
+//     lowerAccessory = [],
+//     cardio = [];
 
-
-function resetFunction() {
-    var sections = document.getElementsByTagName('section');
-    var node;
-    for (var i = 0; i < sections.length; i++){
-        node = document.getElementById(sections[i]);
-        while (node.hasChildNodes()) {
-            node.removeChild(node.firstChild);
-        }
+//     for (var i = 0; i < workoutDivs.length; i++){
+//         while (workoutDivs[i].hasChildNodes()) {
+//             workoutDivs[i].removeChild(workoutDivs[i].firstChild);
+//         }
             
-    }
-}
+//     }
+
+
+
+// }
 
 
 
