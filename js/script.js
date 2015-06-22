@@ -83,25 +83,6 @@ function checkAndConcat(e){
 Exercise Randomizer
 ********************/
         
-// function random(max) {
-//     return Math.floor(Math.random() * max);
-// }
-
-// var exerciseGenerator = function(workoutArray, exerDatabase){
-    
-//     for (var i = 0; i < 4; i++) {
-//         var exercise = exerDatabase[random(exerDatabase.length)];
-//         if (workoutArray.indexOf(exercise) === -1) {
-//             workoutArray.push(exercise);
-//         } else {
-//             i--;
-//         }
-//     }
-//     return workoutArray;
-// }; 
-
-
-
 
 function shuffle(array) {
   var copy = [], n = array.length, i;
@@ -190,31 +171,3 @@ function makeWorkouts(event){
     document.getElementById('generateButton').removeEventListener('click', makeWorkouts, false);
 
  };
-
-
-
-// function resetFunction() {
-//     var upperMain = [],
-//     upperAccessory = [],
-//     lowerMain = [],
-//     lowerAccessory = [],
-//     cardio = [];
-
-//     for (var i = 0; i < workoutDivs.length; i++){
-//         while (workoutDivs[i].hasChildNodes()) {
-//             workoutDivs[i].removeChild(workoutDivs[i].firstChild);
-//         }
-            
-//     }
-
-
-
-// }
-
-
-
-
-
-
-
-
